@@ -82,8 +82,8 @@ const UserCardInfo = ({ user }: Props) => {
           <i>
             <LinkedinIcon className="fill-white w-full h-full" width={'1rem'} />
           </i>
-          <a href={`https://www.linkedin.com/in/jonathan-maldonado-981336234/`}>
-            Jonathan M.
+          <a href={`https://www.twitter.com/${user?.twitter_username}`}>
+            {user?.twitter_username}
           </a>
         </article>
 
