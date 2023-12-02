@@ -1,7 +1,7 @@
 // import GitHubLogo from '@/components/icons/GitHubIcons';
 import LocationIcon from '@/components/icons/LocationIcon';
 import LinkIcon from '@/components/icons/LinkIcon';
-import LinkedinIcon from '@/components/icons/LinkedinIcon';
+import TwitterIcon from '@/components/icons/TwitterIcon';
 import BuilIcon from '@/components/icons/BuildIcon';
 import { User } from '@/interface/user';
 import Image from 'next/image';
@@ -19,7 +19,7 @@ function validarURL(url: string) {
 
 const UserCardInfo = ({ user }: Props) => {
   return (
-    <article className="rounded-xl bg-blue-900  text-white grid-areas p-4">
+    <article className="rounded-xl shadow-md bg-white dark:shadow-none dark:bg-blue-900  dark:text-white grid-areas p-4">
       <div className=" overflow-hidden section-logo  bg-gray-200 rounded-full w-24 h-24 grid place-content-center p-1 mr-3 lg:mx-3">
         <Image
           src={user.avatar_url}
@@ -46,7 +46,7 @@ const UserCardInfo = ({ user }: Props) => {
         {user.bio || 'Sin user bio'}
       </p>
 
-      <div className="section-number flex justify-around bg-blue-950 mt-4 p-8 rounded-xl text-center">
+      <div className="section-number flex justify-around dark:text-white text-blue-950 bg-blue-50 dark:bg-blue-950 mt-4 p-8 rounded-xl text-center">
         <article>
           <p>Repositorios</p>
           <p className="font-bold  text-xl">{user.public_repos}</p>
@@ -61,17 +61,23 @@ const UserCardInfo = ({ user }: Props) => {
         </article>
       </div>
 
-      <div className="section-social md:grid md:grid-cols-2 mt-4 space-y-2 ">
+      <div className="section-social md:grid md:grid-cols-2 mt-4 space-y-1">
         <article className="flex space-x-2">
           <i>
-            <LocationIcon className="fill-white w-full h-full" width={'1rem'} />
+            <LocationIcon
+              className="dark:fill-white w-full h-full fill-blue-950"
+              width={'1rem'}
+            />
           </i>
           <span>{user.location}</span>
         </article>
 
         <article className="flex space-x-2">
           <i>
-            <LinkIcon className="fill-white w-full h-full" width={'1rem'} />
+            <LinkIcon
+              className="dark:fill-white w-full h-full fill-blue-950"
+              width={'1rem'}
+            />
           </i>
           <a href={validarURL(user?.html_url)} className="truncate">
             {user?.html_url || 'sin informacion'}
@@ -80,7 +86,10 @@ const UserCardInfo = ({ user }: Props) => {
 
         <article className="flex space-x-2">
           <i>
-            <LinkedinIcon className="fill-white w-full h-full" width={'1rem'} />
+            <TwitterIcon
+              className="dark:fill-white w-full h-full fill-blue-950"
+              width={'1rem'}
+            />
           </i>
           <a href={`https://www.twitter.com/${user?.twitter_username}`}>
             {user?.twitter_username}
@@ -89,7 +98,10 @@ const UserCardInfo = ({ user }: Props) => {
 
         <article className="flex space-x-2">
           <i>
-            <BuilIcon className="fill-white w-full h-full" width={'1rem'} />
+            <BuilIcon
+              className="dark:fill-white w-full h-full fill-blue-950"
+              width={'1rem'}
+            />
           </i>
           <a href="#">{user?.company || 'sin informacion'} </a>
         </article>
