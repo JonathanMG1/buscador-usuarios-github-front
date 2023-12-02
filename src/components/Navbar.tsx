@@ -17,8 +17,14 @@ const initialThemeState = () => {
   return 'dark';
 };
 const Navbar = () => {
-  //Funcionalidad modo oscuro y modo claro.
+  const [hasMounted, setHasMounted] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark'>(initialThemeState);
+
+  console.log('antes del loading..', theme);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     if (theme === 'dark') {
@@ -28,6 +34,10 @@ const Navbar = () => {
     }
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  if (!hasMounted) {
+    return <>Cargando...</>;
+  }
 
   const handleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light');
