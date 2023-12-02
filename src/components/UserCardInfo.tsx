@@ -51,7 +51,7 @@ const UserCardInfo = ({ user }: Props) => {
           <p>Repositorios</p>
           <p className="font-bold  text-xl">{user.public_repos}</p>
         </article>
-        <article>
+        <article className="mr-2 ml-2">
           <p>Seguidores</p>
           <p className="font-bold text-xl">{user.followers}</p>
         </article>
